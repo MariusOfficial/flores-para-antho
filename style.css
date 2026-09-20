@@ -1,0 +1,4044 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #fff8df;
+    color: #5c4a24;
+
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+/* =========================
+   LLUVIA DE DECORACIÓN
+   ========================= */
+
+#lluvia-flores {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+
+.elemento-caida {
+    position: absolute;
+
+    top: -120px;
+
+    height: auto;
+
+    opacity: 0.55;
+
+    animation-name: caer;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes caer {
+
+    from {
+        transform:
+            translateY(-120px)
+            translateX(0)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translateY(110vh)
+            translateX(var(--movimiento))
+            rotate(var(--rotacion));
+    }
+
+}
+
+
+/* =========================
+   PRIMERA PANTALLA
+   ========================= */
+
+.pantalla-inicio {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    position: relative;
+
+    z-index: 2;
+
+    transition: opacity 0.8s ease;
+}
+
+
+.flores {
+    font-size: 45px;
+
+    margin-bottom: 25px;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+
+@keyframes flotar {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+
+}
+
+
+h1 {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+}
+
+
+.pantalla-inicio p {
+    font-size: 20px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BOTONES
+   ========================= */
+
+button {
+    border: none;
+
+    background: #f4c542;
+
+    color: #5c4a24;
+
+    padding: 16px 28px;
+
+    border-radius: 50px;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+button:hover {
+    transform: scale(1.08);
+
+    box-shadow:
+        0 8px 20px rgba(92, 74, 36, 0.2);
+}
+
+
+button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================
+   SEGUNDA PANTALLA
+   ========================= */
+
+.pantalla-intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    z-index: 3;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+}
+
+
+/* Contenido de la segunda pantalla */
+
+.intro-contenido {
+
+    max-width: 600px;
+
+    padding: 40px 30px;
+
+    background: rgba(255, 252, 235, 0.88);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 10px 35px rgba(92, 74, 36, 0.12);
+
+}
+
+
+.flor-intro {
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+
+.intro-contenido h2 {
+
+    font-size: 38px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.intro-contenido p {
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+
+}
+
+
+.intro-contenido button {
+
+    margin-top: 15px;
+}
+
+
+/* =========================
+   CUANDO LA SEGUNDA PANTALLA
+   ESTÁ ACTIVA
+   ========================= */
+
+.pantalla-intro.activa {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+.pantalla-inicio.oculta {
+
+    opacity: 0;
+
+    pointer-events: none;
+}/* =========================
+   TERCERA PANTALLA
+   ========================= */
+
+.pantalla-ramo {
+
+    position: fixed;
+
+    inset: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    z-index: 4;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+}
+
+
+.pantalla-ramo.activa {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+.ramo-contenido {
+
+    max-width: 600px;
+
+    padding: 40px 30px;
+
+    background: rgba(255, 252, 235, 0.9);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 10px 35px rgba(92, 74, 36, 0.12);
+}
+
+
+.ramo-icono {
+
+    font-size: 48px;
+
+    margin-bottom: 20px;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+
+.ramo-contenido h2 {
+
+    font-size: 38px;
+
+    margin-bottom: 25px;
+}
+
+
+.ramo-contenido p {
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    margin-bottom: 20px;
+}/* =========================
+   RAMO MÁGICO
+   ========================= */
+
+.ramo-magico {
+    position: absolute;
+
+    left: 50%;
+    top: 54%;
+
+    width: 340px;
+height: 360px;
+
+    transform: translateX(-50%) scale(0.8);
+
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+}
+
+
+/* El ramo aparece cuando se activa */
+
+.ramo-magico.visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateX(-50%) scale(1);
+
+}
+
+
+/* =========================
+   TALLOS
+   ========================= */
+
+.tallo {
+
+    position: absolute;
+
+    bottom: 0;
+
+    left: 50%;
+
+    width: 5px;
+
+    height: 170px;
+
+    background: #6d8b45;
+
+    border-radius: 10px;
+
+    transform-origin: bottom;
+
+    opacity: 0;
+
+    transform: rotate(var(--angulo, 0deg)) scaleY(0);
+
+    animation: crecer-tallo 1.2s ease-out forwards;
+
+}
+
+
+.tallo-1 {
+    --angulo: -24deg;
+    animation-delay: 0.2s;
+}
+
+.tallo-2 {
+    --angulo: -18deg;
+    animation-delay: 0.35s;
+}
+
+.tallo-3 {
+    --angulo: -12deg;
+    animation-delay: 0.5s;
+}
+
+.tallo-4 {
+    --angulo: -6deg;
+    animation-delay: 0.65s;
+}
+
+.tallo-5 {
+    --angulo: 0deg;
+    animation-delay: 0.8s;
+}
+
+.tallo-6 {
+    --angulo: 6deg;
+    animation-delay: 0.95s;
+}
+
+.tallo-7 {
+    --angulo: 12deg;
+    animation-delay: 1.1s;
+}
+
+.tallo-8 {
+    --angulo: 18deg;
+    animation-delay: 1.25s;
+}
+
+.tallo-9 {
+    --angulo: 24deg;
+    animation-delay: 1.4s;
+}
+
+
+@keyframes crecer-tallo {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            rotate(var(--angulo, 0deg))
+            scaleY(1);
+
+    }
+
+}
+
+
+/* =========================
+   FLORES
+   ========================= */
+
+.flor-ramo {
+
+    position: absolute;
+
+    width: 66px;
+
+    height: auto;
+
+    opacity: 0;
+
+    transform: scale(0);
+
+    z-index: 4;
+
+    animation:
+        aparecer-flor
+        0.8s
+        ease-out
+        forwards;
+
+}
+/* Flores de la segunda capa */
+
+.flor-10,
+.flor-11,
+.flor-12,
+.flor-13,
+.flor-14,
+.flor-15,
+.flor-16 {
+    z-index: 3;
+}
+
+
+/* Posición de cada flor */
+
+.flor-1 {
+    left: 58px;
+    top: 158px;
+    animation-delay: 1.4s;
+}
+
+.flor-2 {
+    left: 74px;
+    top: 150px;
+    animation-delay: 1.55s;
+}
+
+.flor-3 {
+    left: 92px;
+    top: 144px;
+    animation-delay: 1.7s;
+}
+
+.flor-4 {
+    left: 112px;
+    top: 140px;
+    animation-delay: 1.85s;
+}
+
+.flor-5 {
+    left: 132px;
+    top: 138px;
+    animation-delay: 2s;
+}
+
+.flor-6 {
+    left: 152px;
+    top: 140px;
+    animation-delay: 2.15s;
+}
+
+.flor-7 {
+    left: 172px;
+    top: 144px;
+    animation-delay: 2.3s;
+}
+
+.flor-8 {
+    left: 190px;
+    top: 150px;
+    animation-delay: 2.45s;
+}
+
+.flor-9 {
+    left: 206px;
+    top: 158px;
+    animation-delay: 2.6s;
+}
+
+.flor-10 {
+    left: 72px;
+    top: 136px;
+    animation-delay: 2.75s;
+}
+
+.flor-11 {
+    left: 92px;
+    top: 128px;
+    animation-delay: 2.9s;
+}
+
+.flor-12 {
+    left: 114px;
+    top: 122px;
+    animation-delay: 3.05s;
+}
+
+.flor-13 {
+    left: 136px;
+    top: 118px;
+    animation-delay: 3.2s;
+}
+
+.flor-14 {
+    left: 158px;
+    top: 122px;
+    animation-delay: 3.35s;
+}
+
+.flor-15 {
+    left: 180px;
+    top: 128px;
+    animation-delay: 3.5s;
+}
+
+.flor-16 {
+    left: 200px;
+    top: 136px;
+    animation-delay: 3.65s;
+}
+
+
+@keyframes aparecer-flor {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0)
+            rotate(-20deg);
+
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.15)
+            rotate(5deg);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scale(1)
+            rotate(0deg);
+
+    }
+
+}/* =========================
+   PAPEL DEL RAMO
+   ========================= */
+
+.papel-ramo {
+    position: absolute;
+
+    left: 50%;
+    bottom: -4px;
+
+    width: 240px;
+    height: 120px;
+
+    transform: translateX(-50%);
+
+    background: linear-gradient(
+        135deg,
+        #fff1bf,
+        #ebcd7c
+    );
+
+    clip-path: polygon(
+    8% 0%,
+    92% 0%,
+    62% 100%,
+    38% 100%
+);
+
+    z-index: 5;
+}
+
+
+/* Pliegue del papel */
+
+.papel-ramo::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: #fff8df;
+
+    opacity: 0.35;
+
+    clip-path: polygon(
+        0% 0%,
+        50% 55%,
+        35% 100%,
+        0% 100%
+    );
+}
+
+
+/* =========================
+   LACITO AMARILLO
+   ========================= */
+
+.lazo-ramo {
+    position: absolute;
+
+    left: 50%;
+    bottom: 36px;
+
+    width: 22px;
+height: 22px;
+
+    transform: translateX(-50%);
+
+    background: #c69a34;
+
+    border: 2px solid #fff1bf;
+
+    border-radius: 50%;
+
+    z-index: 6;
+}
+
+
+/* Lado izquierdo del lazo */
+
+.lazo-ramo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 36px;
+height: 26px;
+
+    right: 12px;
+    top: -5px;
+
+    background: #f4c542;
+
+    border-radius: 70% 25% 60% 25%;
+
+    transform: rotate(20deg);
+}
+
+
+/* Lado derecho del lazo */
+
+.lazo-ramo::after {
+    content: "";
+
+    position: absolute;
+
+    width: 36px;
+height: 26px;
+
+    left: 12px;
+    top: -5px;
+
+    background: #f4c542;
+
+    border-radius: 25% 70% 25% 60%;
+
+    transform: rotate(-20deg);
+}
+/* Botón para continuar después del ramo */
+
+.boton-siguiente {
+    display: none;
+    margin-top: 15px;
+}
+/* =========================
+   CUARTA PANTALLA:
+   CAJITA DE SORPRESAS
+   ========================= */
+
+.pantalla-sorpresas {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    overflow-y: auto;
+
+    z-index: 5;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        visibility 0.8s;
+}
+
+.pantalla-sorpresas.activa {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.sorpresas-contenido {
+    width: 100%;
+    max-width: 650px;
+
+    padding: 35px 25px;
+
+    background: rgba(255, 252, 235, 0.94);
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 35px rgba(92, 74, 36, 0.12);
+}
+
+.sorpresas-icono {
+    font-size: 35px;
+    margin-bottom: 15px;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.sorpresas-contenido h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.sorpresas-contenido p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.menu-regalos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(190px, 1fr));
+
+    gap: 15px;
+}
+
+.tarjeta-regalo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 25px 15px;
+
+    border-radius: 20px;
+
+    background: #fff0ba;
+
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+.regalo-icono {
+    font-size: 34px;
+}
+
+.regalo-titulo {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.regalo-descripcion {
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: normal;
+}
+/* =========================
+   QUINTA PANTALLA:
+   LA CARTA
+   ========================= */
+
+.pantalla-carta {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+
+    overflow-y: auto;
+
+    background: rgba(255, 248, 223, 0.92);
+
+    z-index: 6;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s;
+}
+
+
+/* Cuando entramos a la pantalla de la carta */
+
+.pantalla-carta.activa {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Contenedor de la carta */
+
+.carta-escena {
+    width: 100%;
+    max-width: 650px;
+
+    text-align: center;
+
+    padding: 30px 15px;
+}
+
+
+.carta-escena h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+
+.instruccion-carta {
+    font-size: 18px;
+    line-height: 1.6;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   SOBRE
+   ========================= */
+
+.sobre {
+    position: relative;
+
+    width: 320px;
+    max-width: 100%;
+
+    height: 205px;
+
+    margin: 0 auto 30px;
+
+    perspective: 700px;
+}
+
+
+/* Parte principal del sobre */
+
+.sobre-base {
+    position: absolute;
+    inset: 0;
+
+    background: #e8cb94;
+
+    border: 2px solid #bc995e;
+    border-radius: 8px;
+
+    box-shadow:
+        0 12px 30px rgba(92, 74, 36, 0.2);
+}
+
+
+/* Pliegue inferior del sobre */
+
+.sobre-base::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: #f4dfb9;
+
+    clip-path: polygon(
+        0% 100%,
+        50% 38%,
+        100% 100%
+    );
+}
+
+
+/* =========================
+   SOLAPA DEL SOBRE
+   ========================= */
+
+.sobre-solapa {
+    position: absolute;
+    inset: 0;
+
+    background: #f9e8c5;
+
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        50% 66%
+    );
+
+    transform-origin: top center;
+
+    transition: transform 0.8s ease;
+
+    z-index: 2;
+}
+
+
+/* La solapa se levanta al abrir el sobre */
+
+.sobre.abierto .sobre-solapa {
+    transform: rotateX(180deg);
+}
+
+
+/* =========================
+   SELLO DE CERA
+   ========================= */
+
+.sello-cera {
+    position: absolute;
+
+    left: 50%;
+    top: 56%;
+
+    width: 62px;
+    height: 62px;
+
+    padding: 0;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #b94e50;
+
+    border: 3px solid #923537;
+    border-radius: 50%;
+
+    color: #ffe7d1;
+    font-size: 27px;
+
+    box-shadow:
+        0 4px 10px rgba(92, 35, 35, 0.3);
+
+    cursor: pointer;
+
+    z-index: 3;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.4s ease;
+}
+
+
+/* Efecto al pasar el cursor */
+
+.sello-cera:hover {
+    transform:
+        translate(-50%, -50%)
+        scale(1.1);
+}
+
+
+/* El sello desaparece al romperlo */
+
+.sobre.abierto .sello-cera {
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1.5);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   PAPEL DE LA CARTA
+   ========================= */
+
+.papel-carta {
+    display: none;
+
+    width: 100%;
+    max-width: 550px;
+
+    margin: 0 auto;
+
+    padding: 35px 30px;
+
+    background: #fff9e9;
+
+    border: 1px solid #e7d5ac;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 10px 30px rgba(92, 74, 36, 0.12);
+
+    text-align: left;
+}
+
+
+/* Cuando la carta se revela */
+
+.papel-carta.visible {
+    display: block;
+
+    animation:
+        aparecer-carta
+        0.9s ease
+        both;
+}
+
+
+@keyframes aparecer-carta {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Texto de la carta */
+
+.papel-carta h3 {
+    font-size: 28px;
+
+    margin-bottom: 25px;
+}
+
+
+.papel-carta p {
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    margin-bottom: 22px;
+}
+
+
+/* Firma */
+
+.firma-carta {
+    margin-top: 35px;
+
+    text-align: right;
+
+    font-style: italic;
+}
+
+
+/* =========================
+   BOTÓN PARA REGRESAR
+   ========================= */
+
+.volver-carta {
+    margin-top: 25px;
+}
+
+
+/* Ajustes para celulares */
+
+@media (max-width: 480px) {
+
+    .carta-escena h2 {
+        font-size: 29px;
+    }
+
+    .instruccion-carta {
+        font-size: 16px;
+    }
+
+    .papel-carta {
+        padding: 28px 22px;
+    }
+
+    .papel-carta p {
+        font-size: 16px;
+    }
+
+}
+/* =========================
+   PEDACITOS DE TUS MUNDOS
+   ========================= */
+
+.pantalla-mundos {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+
+    padding: 35px 18px;
+
+    overflow-y: auto;
+
+    background: rgba(255, 248, 223, 0.94);
+
+    z-index: 7;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s;
+}
+
+.pantalla-mundos.activa {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mundos-contenido {
+    width: 100%;
+    max-width: 750px;
+
+    margin: auto;
+
+    padding: 35px 25px;
+
+    background: #fffbef;
+
+    border-radius: 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 35px rgba(92, 74, 36, 0.12);
+}
+
+.mundos-icono {
+    font-size: 35px;
+    margin-bottom: 15px;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.mundos-contenido h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.mundos-intro {
+    font-size: 17px;
+    line-height: 1.7;
+
+    margin-bottom: 28px;
+}
+
+.coleccion-mundos {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+
+    gap: 16px;
+}
+
+.postal-mundo {
+    padding: 25px 20px;
+
+    background: #fff0c6;
+
+    border: 1px solid #eed79b;
+    border-radius: 18px;
+
+    text-align: center;
+}
+
+.postal-icono {
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.postal-mundo h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.postal-mundo p {
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.volver-mundos {
+    margin-top: 28px;
+}
+
+@media (max-width: 480px) {
+
+    .mundos-contenido {
+        padding: 28px 18px;
+    }
+
+    .mundos-contenido h2 {
+        font-size: 28px;
+    }
+
+}
+/* =========================
+   PANTALLA DE MÚSICA
+   ========================= */
+
+.pantalla-musica {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+    overflow-y: auto;
+
+    background: rgba(255, 248, 223, 0.94);
+
+    z-index: 8;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s;
+}
+
+.pantalla-musica.activa {
+    opacity: 1;
+    visibility: visible;
+}
+
+.musica-contenido {
+    width: 100%;
+    max-width: 550px;
+
+    padding: 35px 25px;
+
+    background: #fffbef;
+    border-radius: 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 35px rgba(92, 74, 36, 0.12);
+}
+
+.musica-icono {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.musica-contenido h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+.musica-contenido p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* Disco decorativo */
+
+.musica-aviso {
+    max-width: 520px;
+
+    margin: 0 auto 22px;
+
+    padding: 14px 16px;
+
+    background: #fff4cf;
+
+    border: 1px dashed #d7af57;
+    border-radius: 16px;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    color: #6b552f;
+}
+
+/* Disco decorativo */
+
+.disco-musica {
+    position: relative;
+
+    width: 190px;
+    height: 190px;
+
+    margin: 25px auto 28px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle, #1f1d1b 0 18px, transparent 18px),
+        repeating-radial-gradient(
+            circle,
+            #2d2925 0px,
+            #2d2925 3px,
+            #403933 4px,
+            #2d2925 6px
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 10px 22px rgba(38, 31, 22, 0.18);
+
+    animation: girar-disco 12s linear infinite;
+}
+
+.centro-disco {
+    width: 82px;
+    height: 82px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 8px solid #e7ba42;
+
+    background: #f4c542;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centro-disco img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.player-apple {
+    display: block;
+
+    width: 100%;
+    max-width: 660px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 18px;
+}
+
+@keyframes girar-disco {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.musica-contenido .dedicatoria-musica {
+    font-style: italic;
+}
+
+.mensaje-musica {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.volver-musica {
+    display: block;
+    margin: 20px auto 0;
+
+    background: transparent;
+}
+/* =========================
+   VALES PARA NOSOTROS
+   ========================= */
+
+.pantalla-vales {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+
+    padding: 30px 18px;
+
+    overflow-y: auto;
+
+    background: rgba(255, 248, 223, 0.94);
+
+    z-index: 9;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s;
+}
+
+
+.pantalla-vales.activa {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.vales-contenido {
+    width: 100%;
+    max-width: 700px;
+
+    margin: auto;
+
+    padding: 35px 25px;
+
+    background: #fffbef;
+
+    border-radius: 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 35px rgba(92, 74, 36, 0.12);
+}
+
+
+.vales-icono {
+    font-size: 36px;
+
+    margin-bottom: 15px;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+
+.vales-contenido h2 {
+    font-size: 34px;
+
+    margin-bottom: 15px;
+}
+
+
+.vales-intro {
+    font-size: 17px;
+    line-height: 1.7;
+
+    margin-bottom: 15px;
+}
+
+
+.vales-indicacion {
+    font-size: 15px;
+    font-style: italic;
+
+    margin-bottom: 25px;
+}
+
+
+/* COLECCIÓN DE VALES */
+
+.coleccion-vales {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+
+    gap: 18px;
+}
+
+
+.tarjeta-vale {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 170px;
+
+    padding: 22px 18px;
+
+    background: #fff8ea;
+
+    border: 2px dashed #caa35a;
+    border-radius: 10px;
+
+    font-family: "Courier New", monospace;
+    text-align: center;
+
+    box-shadow:
+        0 6px 16px rgba(92, 74, 36, 0.10);
+
+    overflow: hidden;
+}
+
+/* Muescas laterales del cupón */
+
+.tarjeta-vale::before,
+.tarjeta-vale::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 22px;
+    height: 22px;
+
+    background: #fffbef;
+
+    border-radius: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 1;
+}
+
+.tarjeta-vale::before {
+    left: -12px;
+}
+
+.tarjeta-vale::after {
+    right: -12px;
+}
+
+/* Línea perforada del medio */
+
+.tarjeta-vale .vale-numero {
+    position: relative;
+}
+
+.tarjeta-vale .vale-numero::after {
+    content: "";
+
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    margin: 8px auto 0;
+
+    background:
+        repeating-linear-gradient(
+            to right,
+            #caa35a 0 6px,
+            transparent 6px 12px
+        );
+}
+
+
+.vale-numero {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #9a7a43;
+
+    opacity: 1;
+}
+
+
+.vale-emoji {
+    font-size: 30px;
+
+    line-height: 1;
+}
+
+
+.vale-nombre {
+    font-size: 16px;
+
+    font-weight: bold;
+
+    color: #5f472a;
+
+    line-height: 1.4;
+}
+
+
+/* VALE DESCUBIERTO */
+
+.vale-revelado {
+    display: none;
+
+    position: relative;
+
+    margin-top: 25px;
+
+    padding: 30px 25px;
+
+    background: #fff8ea;
+
+    border: 2px dashed #caa35a;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 8px 20px rgba(92, 74, 36, 0.10);
+
+    overflow: hidden;
+}
+
+/* Muescas laterales del cupón revelado */
+
+.vale-revelado::before,
+.vale-revelado::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 24px;
+    height: 24px;
+
+    background: #fffbef;
+
+    border-radius: 50%;
+
+    transform: translateY(-50%);
+}
+
+.vale-revelado::before {
+    left: -12px;
+}
+
+.vale-revelado::after {
+    right: -12px;
+}
+
+
+.vale-revelado.visible {
+    display: block;
+
+    animation:
+        aparecer-carta 0.6s ease both;
+}
+
+
+.vale-revelado-icono {
+    font-size: 38px;
+
+    margin-bottom: 12px;
+}
+
+
+.vale-revelado h3 {
+    font-size: 24px;
+
+    margin-bottom: 15px;
+
+    color: #5f472a;
+
+    font-family: "Courier New", monospace;
+}
+
+
+.vale-revelado p {
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    margin-bottom: 22px;
+
+    color: #6a5233;
+}
+
+
+.vale-firma {
+    display: block;
+
+    font-size: 13px;
+
+    font-style: italic;
+
+    color: #9a7a43;
+
+    letter-spacing: 1px;
+}
+
+
+/* REGRESAR */
+
+.volver-vales {
+    margin-top: 28px;
+}
+
+
+/* CELULARES */
+
+@media (max-width: 480px) {
+
+    .vales-contenido {
+        padding: 28px 18px;
+    }
+
+    .vales-contenido h2 {
+        font-size: 29px;
+    }
+
+    .tarjeta-vale {
+        min-height: 120px;
+    }
+
+}
+/* =========================
+   ÚLTIMA SORPRESA
+   ========================= */
+
+/* Tarjeta mientras está bloqueada */
+
+.tarjeta-final:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+/* Pantalla final */
+
+.pantalla-final {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px 20px;
+    overflow-y: auto;
+
+    background: rgba(255, 248, 223, 0.95);
+
+    z-index: 10;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease,
+        visibility 0.8s;
+}
+
+
+/* Cuando Antho desbloquea la sorpresa */
+
+.pantalla-final.activa {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Contenido de la sorpresa */
+
+.final-contenido {
+    width: 100%;
+    max-width: 600px;
+
+    margin: auto;
+    padding: 40px 30px;
+
+    background: #fffbef;
+
+    border: 1px solid #e8d49e;
+    border-radius: 28px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 35px rgba(92, 74, 36, 0.12);
+}
+
+
+.final-icono {
+    font-size: 48px;
+
+    margin-bottom: 20px;
+
+    animation: flotar 3s ease-in-out infinite;
+}
+
+
+.final-contenido h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+
+.final-contenido p {
+    font-size: 18px;
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+/* Recuadro del mensaje secreto */
+
+.mensaje-final {
+    padding: 30px 20px;
+
+    margin-bottom: 25px;
+
+    background: #fff0c6;
+
+    border-radius: 18px;
+
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+
+/* Ajuste para celulares */
+
+@media (max-width: 480px) {
+
+    .final-contenido {
+        padding: 30px 20px;
+    }
+
+    .final-contenido h2 {
+        font-size: 29px;
+    }
+
+    .mensaje-final {
+        font-size: 17px;
+    }
+
+}
+/* =========================
+   AJUSTES DE LA CAJITA
+   PARA CELULARES
+   ========================= */
+
+@media (max-width: 600px) {
+
+    /* Evitar que el título se corte arriba */
+
+    .pantalla-sorpresas {
+        align-items: flex-start;
+    }
+
+    .sorpresas-contenido {
+        margin: 0 auto;
+        padding: 25px 16px;
+    }
+
+    /* Título y descripción */
+
+    .sorpresas-contenido h2 {
+        font-size: 27px;
+    }
+
+    .sorpresas-contenido p {
+        font-size: 15px;
+    }
+
+    /* Dos regalos por fila */
+
+    .menu-regalos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    /* Tarjetas más compactas */
+
+    .tarjeta-regalo {
+        padding: 18px 10px;
+        gap: 8px;
+        min-width: 0;
+        font-size: 15px;
+    }
+
+    .regalo-icono {
+        font-size: 28px;
+    }
+
+    .regalo-titulo {
+        font-size: 15px;
+    }
+
+    .regalo-descripcion {
+        font-size: 12px;
+    }
+
+    /* La sorpresa final ocupa toda la fila */
+
+    .tarjeta-final {
+        grid-column: 1 / -1;
+    }
+
+}
+/* =========================
+   POSTAL DE LIBROS
+   PÁGINA ARRANCADA
+   ========================= */
+
+.postal-libros {
+
+    position: relative;
+
+    background: transparent;
+
+    border: none;
+    border-radius: 0;
+
+    padding: 35px 30px;
+
+    transform: rotate(-1deg);
+
+    filter: drop-shadow(
+        3px 6px 5px rgba(92, 74, 36, 0.18)
+    );
+
+    isolation: isolate;
+
+}
+
+
+/* PAPEL CON BORDES ARRANCADOS */
+
+.postal-libros::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 8px,
+            rgba(139, 107, 65, 0.018) 9px
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff9e9,
+            #f1e1bb
+        );
+
+    clip-path: polygon(
+
+        1% 3%,
+        7% 1%,
+        12% 2.5%,
+        18% 0%,
+        24% 2%,
+        32% 1%,
+        39% 3%,
+        46% 0.5%,
+        53% 2%,
+        61% 0%,
+        69% 2.5%,
+        76% 1%,
+        83% 3%,
+        91% 0.5%,
+        99% 2%,
+
+        98% 12%,
+        100% 21%,
+        98% 30%,
+        99.5% 39%,
+        97.5% 48%,
+        100% 57%,
+        98% 66%,
+        99.5% 76%,
+        97.5% 86%,
+        99% 98%,
+
+        91% 100%,
+        84% 98%,
+        76% 99.5%,
+        68% 97.5%,
+        60% 100%,
+        51% 98%,
+        43% 99.5%,
+        35% 97.5%,
+        27% 100%,
+        19% 98%,
+        11% 99.5%,
+        1% 97%,
+
+        2.5% 87%,
+        0% 78%,
+        2% 69%,
+        0.5% 59%,
+        2.5% 49%,
+        0% 40%,
+        2% 31%,
+        0.5% 21%,
+        2.5% 12%
+
+    );
+
+}
+
+
+/* CONTENIDO DE LA PÁGINA */
+
+.libros-contenido {
+
+    position: relative;
+
+    z-index: 1;
+
+    font-family:
+        "Palatino Linotype",
+        "Book Antiqua",
+        Palatino,
+        Georgia,
+        serif;
+
+    color: #624a35;
+
+}
+
+
+/* NOMBRE DEL CAPÍTULO */
+
+.libros-capitulo {
+
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: #9e8361;
+
+    margin-bottom: 22px;
+
+}
+
+
+/* TÍTULO ANTIGUO */
+
+.postal-libros h3 {
+
+    font-family:
+        "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+
+    font-size: 27px;
+
+    font-style: italic;
+
+    font-weight: normal;
+
+    line-height: 1.3;
+
+    color: #513b2c;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* SEPARADOR DECORATIVO */
+
+.libros-separador {
+
+    width: 65%;
+
+    height: 1px;
+
+    margin: 0 auto 23px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #ad9271,
+        transparent
+    );
+
+}
+
+
+/* TEXTO DE LA DEDICATORIA */
+
+.postal-libros .libros-frase {
+
+    font-size: 16px;
+
+    font-style: italic;
+
+    line-height: 1.9;
+
+    color: #69523e;
+
+    margin-bottom: 28px;
+
+}
+
+
+/* FIRMA */
+
+.libros-firma {
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    text-align: right;
+
+    color: #98795a;
+
+    line-height: 1.6;
+
+}
+
+
+/* AJUSTES PARA CELULAR */
+
+@media (max-width: 480px) {
+
+    .postal-libros {
+
+        padding: 35px 28px;
+
+        transform: rotate(-0.5deg);
+
+    }
+
+    .postal-libros h3 {
+
+        font-size: 26px;
+
+    }
+
+}
+/* =========================
+   POSTAL DE ZELDA
+   ========================= */
+
+.postal-zelda {
+    position: relative;
+
+    overflow: hidden;
+
+    border: none;
+    border-radius: 22px;
+
+    min-height: 300px;
+
+    padding: 0;
+
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(28, 37, 24, 0.18),
+            rgba(28, 37, 24, 0.45)
+        ),
+        url("assets/mundos/zelda-castillo.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow:
+        0 10px 25px rgba(92, 74, 36, 0.16);
+}
+
+/* Capa extra suave para que el texto se lea mejor */
+.zelda-capa {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(35, 28, 18, 0.52),
+            rgba(35, 28, 18, 0.10) 45%,
+            rgba(255, 244, 210, 0.06)
+        );
+
+    pointer-events: none;
+}
+
+/* Contenido */
+.zelda-contenido {
+    position: relative;
+    z-index: 1;
+
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 22px 18px;
+
+    text-align: left;
+
+    color: #fff8e8;
+}
+
+/* Etiquetita arriba */
+.zelda-etiqueta {
+    align-self: flex-start;
+
+    margin-bottom: 10px;
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 244, 210, 0.18);
+    border: 1px solid rgba(255, 244, 210, 0.28);
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: #fff3c5;
+}
+
+/* Título */
+.postal-zelda h3 {
+    font-size: 28px;
+    line-height: 1.15;
+
+    color: #fff4cf;
+
+    margin-bottom: 12px;
+
+    text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.28);
+}
+
+/* Frase */
+.postal-zelda .zelda-frase {
+    font-size: 15px;
+    line-height: 1.7;
+
+    margin-bottom: 14px;
+
+    color: #fffaf0;
+
+    text-shadow:
+        0 2px 10px rgba(0, 0, 0, 0.30);
+}
+
+/* Firma */
+.zelda-firma {
+    font-size: 13px;
+    font-style: italic;
+
+    color: #ffeaa6;
+}
+
+/* Ajuste celular */
+@media (max-width: 480px) {
+    .postal-zelda {
+        min-height: 260px;
+    }
+
+    .postal-zelda h3 {
+        font-size: 24px;
+    }
+
+    .postal-zelda .zelda-frase {
+        font-size: 14px;
+    }
+}
+/* =========================
+   POSTAL DE NARUTO
+   ICHIRAKU RAMEN
+   ========================= */
+
+.postal-naruto {
+
+    position: relative;
+
+    min-height: 430px;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(26, 17, 11, 0.08),
+            rgba(26, 17, 11, 0.35)
+        ),
+        url("assets/mundos/naruto-ramen.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    box-shadow:
+        0 10px 25px rgba(75, 45, 22, 0.18);
+
+}
+
+
+/* Nombre del restaurante */
+
+.naruto-etiqueta {
+
+    position: absolute;
+
+    top: 16px;
+
+    left: 14px;
+
+    z-index: 2;
+
+    padding: 7px 12px;
+
+    background: rgba(70, 37, 17, 0.82);
+
+    color: #ffe8b8;
+
+    border-radius: 4px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* Contenedor del mensaje */
+
+.naruto-contenido {
+
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    min-height: 430px;
+
+    height: 100%;
+
+    padding: 15px;
+
+}
+
+
+/* Notita de papel */
+
+.naruto-nota {
+
+    padding: 24px 17px;
+
+    background: rgba(255, 246, 222, 0.96);
+
+    color: #65452e;
+
+    transform: rotate(-1deg);
+
+    box-shadow:
+        2px 4px 12px rgba(30, 15, 5, 0.25);
+
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 98%,
+        94% 100%,
+        87% 98%,
+        79% 100%,
+        70% 98%,
+        61% 100%,
+        52% 98%,
+        43% 100%,
+        34% 98%,
+        25% 100%,
+        16% 98%,
+        8% 100%,
+        0% 98%
+    );
+
+}
+
+
+/* Detalle sobre el título */
+
+.naruto-detalle {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    color: #ad7845;
+
+}
+
+
+/* Título */
+
+.postal-naruto h3 {
+
+    font-size: 23px;
+
+    line-height: 1.2;
+
+    margin-bottom: 15px;
+
+    color: #6e3e24;
+
+}
+
+
+/* Dedicatoria */
+
+.postal-naruto p {
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 12px;
+
+    color: #65452e;
+
+}
+
+
+/* Firma */
+
+.naruto-firma {
+
+    display: block;
+
+    margin-top: 16px;
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    text-align: right;
+
+    color: #9b6638;
+
+}
+
+
+/* Ajustes para celular */
+
+@media (max-width: 480px) {
+
+    .postal-naruto {
+
+        min-height: 400px;
+
+    }
+
+    .naruto-contenido {
+
+        min-height: 400px;
+
+    }
+
+}
+/* =========================
+   POSTAL DE ANIMAL CROSSING
+   CORREO DE LA ISLA
+   ========================= */
+
+.postal-animal {
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    min-height: 430px;
+
+    padding: 18px;
+
+    overflow: hidden;
+
+    border: none;
+
+    border-radius: 24px;
+
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(255, 250, 220, 0.02),
+            rgba(39, 73, 39, 0.15)
+        ),
+        url("assets/mundos/animal-crossing.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    box-shadow:
+        0 10px 25px rgba(56, 83, 48, 0.16);
+
+}
+
+
+/* =========================
+   CARTITA DEL BUZÓN
+   ========================= */
+
+.animal-carta {
+
+    position: relative;
+
+    z-index: 1;
+
+    padding: 18px 16px;
+
+    background: rgba(255, 251, 232, 0.96);
+
+    border: 2px solid #d7dcb2;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 5px 15px rgba(45, 65, 38, 0.18);
+
+    transform: rotate(-1deg);
+
+    color: #526548;
+
+}
+
+
+/* Encabezado del correo */
+
+.animal-encabezado {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    color: #7a9567;
+
+}
+
+
+/* Sellito postal */
+
+.animal-sello {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 35px;
+    height: 40px;
+
+    background: #c6dfa7;
+
+    color: #507247;
+
+    border: 2px dashed #83a76a;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transform: rotate(8deg);
+
+}
+
+
+/* Título de la carta */
+
+.postal-animal h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: 23px;
+
+    line-height: 1.2;
+
+    color: #577447;
+
+    margin-bottom: 16px;
+
+}
+
+
+/* Dedicatoria */
+
+.postal-animal p {
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: #55664a;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* Firma */
+
+.animal-firma {
+
+    margin-top: 16px;
+
+    padding-top: 12px;
+
+    border-top: 1px dashed #b7c89d;
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    line-height: 1.6;
+
+    text-align: right;
+
+    color: #759269;
+
+}
+
+
+/* Ajustes para celular */
+
+@media (max-width: 480px) {
+
+    .postal-animal {
+
+        min-height: 400px;
+
+    }
+
+    .animal-carta {
+
+        padding: 20px 16px;
+
+    }
+
+}
+/* =========================
+   POSTAL DE TERROR
+   PODCAST PARANORMAL
+   ========================= */
+
+.postal-terror {
+    position: relative;
+
+    min-height: 430px;
+
+    padding: 25px 18px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 10%,
+            #454051,
+            transparent 55%
+        ),
+        linear-gradient(
+            145deg,
+            #25232f,
+            #12121b
+        );
+
+    border: 1px solid #49404e;
+
+    border-radius: 15px;
+
+    color: #e9decd;
+
+    box-shadow:
+        0 10px 25px rgba(20, 15, 25, 0.22);
+}
+
+
+/* ENCABEZADO DEL EXPEDIENTE */
+
+.terror-encabezado {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.terror-archivo {
+    padding: 5px 8px;
+
+    background: #713e4a;
+
+    border: 1px solid #ae6878;
+
+    color: #ffe1e3;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+.terror-hora {
+    color: #b4a5b0;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+}
+
+
+/* TÍTULO */
+
+.postal-terror h3 {
+    color: #e9decd;
+
+    font-size: 24px;
+
+    line-height: 1.3;
+
+    margin: 8px 0;
+}
+
+
+/* GRABADORA */
+
+.terror-grabadora {
+    padding: 25px 12px;
+
+    background: #292732;
+
+    border: 1px solid #57505e;
+
+    border-radius: 8px;
+
+    box-shadow:
+        inset 0 3px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+.terror-etiqueta {
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    color: #b4a5b0;
+
+    margin-bottom: 25px;
+}
+
+
+/* ONDAS DE SONIDO */
+
+.terror-ondas {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 4px;
+
+    height: 50px;
+
+    margin-bottom: 25px;
+}
+
+
+.terror-ondas span {
+    width: 4px;
+    height: 15px;
+
+    background: #c8a7b7;
+
+    border-radius: 5px;
+
+    animation:
+        onda-terror 1.4s ease-in-out infinite alternate;
+}
+
+
+.terror-ondas span:nth-child(3n) {
+    animation-delay: -0.4s;
+}
+
+
+.terror-ondas span:nth-child(4n) {
+    animation-delay: -0.8s;
+}
+
+
+.terror-ondas span:nth-child(5n) {
+    animation-delay: -1.1s;
+}
+
+
+@keyframes onda-terror {
+
+    from {
+        height: 5px;
+    }
+
+    to {
+        height: 38px;
+    }
+
+}
+
+
+/* ESTADO DE LA GRABACIÓN */
+
+.terror-estado {
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    color: #a99ca8;
+}
+
+
+/* BOTÓN DEL MENSAJE */
+
+.postal-terror .terror-boton {
+    padding: 12px 18px;
+
+    background: #aa8397;
+
+    color: #fff6ed;
+
+    border-radius: 5px;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+}
+
+
+/* TRANSCRIPCIÓN ESCONDIDA */
+
+.terror-mensaje {
+    display: none;
+
+    padding: 20px 15px;
+
+    background: #302b38;
+
+    border-left: 3px solid #c8a7b7;
+
+    text-align: left;
+}
+
+
+.terror-mensaje.visible {
+    display: block;
+
+    animation:
+        aparecer-carta 0.7s ease both;
+}
+
+
+.postal-terror .terror-mensaje p {
+    color: #e9decd;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 15px;
+}
+
+
+.terror-mensaje span {
+    display: block;
+
+    color: #c8a7b7;
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    text-align: right;
+
+    line-height: 1.7;
+}
+
+
+/* AJUSTES CELULAR */
+
+@media (max-width: 480px) {
+
+    .postal-terror {
+        min-height: 400px;
+    }
+
+}
+/* =========================
+   POSTAL DE MIKU
+   SCRAPBOOK DE PAPEL
+   ========================= */
+
+.postal-miku {
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding: 18px 14px 20px;
+
+    overflow: hidden;
+
+    min-height: 410px;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 16px,
+            rgba(67, 135, 134, 0.035) 17px
+        ),
+        #dcf1ed;
+
+    border: 2px solid #a4d8d2;
+
+    border-radius: 8px;
+
+    box-shadow:
+        4px 6px 0 rgba(89, 151, 145, 0.13),
+        0 9px 20px rgba(57, 105, 100, 0.10);
+
+    transform: rotate(1deg);
+
+}
+
+
+/* =========================
+   RECORTES DE MIKU
+   ========================= */
+
+.miku-escena {
+
+    position: relative;
+
+    width: 100%;
+    height: 165px;
+
+    flex-shrink: 0;
+
+}
+
+
+/* Estrellitas de papel */
+
+.miku-estrellas {
+
+    position: absolute;
+
+    width: 72px;
+    height: auto;
+
+    top: 0;
+    right: 0;
+
+    transform: rotate(15deg);
+
+    opacity: 0.85;
+
+    z-index: 1;
+
+}
+
+
+/* Notas musicales de papel */
+
+.miku-notas {
+
+    position: absolute;
+
+    width: 75px;
+    height: auto;
+
+    top: 30px;
+    left: 0;
+
+    transform: rotate(-15deg);
+
+    opacity: 0.85;
+
+    z-index: 1;
+
+}
+
+
+/* Miku protagonista */
+
+.miku-personaje {
+
+    position: absolute;
+
+    width: 160px;
+    max-width: 78%;
+
+    height: 160px;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    object-fit: contain;
+
+    z-index: 2;
+
+    filter:
+        drop-shadow(
+            2px 4px 3px rgba(64, 111, 109, 0.18)
+        );
+
+}
+
+
+/* =========================
+   NOTITA DEDICADA A ANTHO
+   ========================= */
+
+.miku-nota {
+
+    position: relative;
+
+    padding: 27px 15px 17px;
+
+    background: rgba(255, 253, 246, 0.96);
+
+    border: 1px solid #d6e7df;
+
+    color: #476964;
+
+    transform: rotate(-1.5deg);
+
+    box-shadow:
+        2px 4px 8px rgba(69, 128, 123, 0.12);
+
+}
+
+
+/* Cinta adhesiva sobre el papel */
+
+.miku-nota::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -9px;
+    left: 50%;
+
+    width: 58px;
+    height: 18px;
+
+    transform:
+        translateX(-50%)
+        rotate(3deg);
+
+    background: rgba(118, 192, 184, 0.47);
+
+}
+
+
+/* Etiqueta pequeña */
+
+.miku-etiqueta {
+
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: #6a9c95;
+
+    margin-bottom: 12px;
+
+}
+
+
+/* Título */
+
+.postal-miku h3 {
+
+    font-size: 24px;
+
+    line-height: 1.2;
+
+    color: #367c78;
+
+    margin-bottom: 14px;
+
+}
+
+
+/* Dedicatoria */
+
+.postal-miku p {
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: #4b6d68;
+
+    margin-bottom: 17px;
+
+}
+
+
+/* Firma */
+
+.miku-firma {
+
+    display: block;
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    text-align: right;
+
+    color: #68978f;
+
+}
+/* =========================
+   ESTÉTICA DE CARTA ANTIGUA
+   ========================= */
+
+.papel-carta {
+
+    position: relative;
+
+    isolation: isolate;
+
+    max-width: 580px;
+
+    padding: 45px 38px;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 7px,
+            rgba(115, 78, 37, 0.015) 8px
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff8e7,
+            #edddb7
+        );
+
+    border: none;
+
+    border-radius: 0;
+
+    color: #614932;
+
+    font-family:
+        "Palatino Linotype",
+        "Book Antiqua",
+        Georgia,
+        serif;
+
+    text-align: left;
+
+    filter:
+        drop-shadow(
+            4px 8px 8px rgba(71, 48, 25, 0.18)
+        );
+
+    /* Bordes irregulares de papel antiguo */
+
+    clip-path: polygon(
+        1% 0%,
+        8% 1%,
+        16% 0%,
+        25% 0.7%,
+        35% 0%,
+        45% 0.8%,
+        55% 0%,
+        65% 0.7%,
+        76% 0%,
+        85% 1%,
+        94% 0%,
+        100% 1%,
+
+        99% 15%,
+        100% 30%,
+        99% 45%,
+        100% 60%,
+        99% 75%,
+        100% 90%,
+        99% 100%,
+
+        88% 99%,
+        76% 100%,
+        64% 99%,
+        52% 100%,
+        40% 99%,
+        28% 100%,
+        16% 99%,
+        1% 100%,
+
+        0% 85%,
+        1% 70%,
+        0% 55%,
+        1% 40%,
+        0% 25%,
+        1% 10%
+    );
+
+}
+
+
+/* Encabezado pequeño */
+
+.carta-encabezado {
+
+    font-size: 10px;
+
+    letter-spacing: 2.5px;
+
+    text-align: center;
+
+    color: #977b53;
+
+    padding-bottom: 22px;
+
+    margin-bottom: 32px;
+
+    border-bottom: 1px solid #c7ae82;
+
+}
+
+
+/* Saludo */
+
+.papel-carta h3 {
+
+    font-family:
+        "Palatino Linotype",
+        Georgia,
+        serif;
+
+    font-size: 31px;
+
+    font-style: italic;
+
+    font-weight: normal;
+
+    color: #573f2c;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* Párrafos de la carta */
+
+.papel-carta p {
+
+    font-size: 17px;
+
+    line-height: 2;
+
+    color: #614932;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* Última dedicatoria */
+
+.papel-carta .carta-despedida {
+
+    margin-top: 38px;
+
+    text-align: center;
+
+    font-style: italic;
+
+    font-size: 19px;
+
+    color: #805936;
+
+}
+
+
+/* Firma manuscrita */
+
+.papel-carta .firma-carta {
+
+    margin-top: 45px;
+
+    margin-bottom: 10px;
+
+    text-align: right;
+
+    font-family:
+        "Segoe Script",
+        "Bradley Hand",
+        cursive;
+
+    font-size: 20px;
+
+    line-height: 2;
+
+    color: #795637;
+
+}
+
+
+/* Evitar que se corte la carta larga */
+
+.pantalla-carta {
+
+    align-items: flex-start;
+
+}
+
+.carta-escena {
+
+    margin: 0 auto;
+
+}
+
+
+/* Ajustes para celular */
+
+@media (max-width: 480px) {
+
+    .papel-carta {
+
+        padding: 40px 28px;
+
+    }
+
+    .papel-carta p {
+
+        font-size: 16px;
+
+        line-height: 1.9;
+
+    }
+
+    .papel-carta h3 {
+
+        font-size: 28px;
+
+    }
+
+    .papel-carta .firma-carta {
+
+        font-size: 18px;
+
+    }
+
+}
+/* =========================
+   DETALLES DE SUPERMERCADO
+   ========================= */
+
+
+/* CUPÓN ESPECIAL sobre el número */
+
+.vale-numero::before {
+    content: "CUPÓN ESPECIAL";
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    color: #8d6836;
+}
+
+
+/* Código de barras y validez debajo del nombre */
+
+.vale-nombre::after {
+    content: "VÁLIDO SOLO PARA ANTHO";
+
+    display: block;
+
+    width: 100%;
+
+    margin-top: 16px;
+    padding-top: 34px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 10px;
+    font-weight: normal;
+
+    letter-spacing: 1px;
+
+    color: #9a7a43;
+
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            #5f472a 0px 2px,
+            transparent 2px 4px,
+            #5f472a 4px 5px,
+            transparent 5px 9px,
+            #5f472a 9px 13px,
+            transparent 13px 16px
+        );
+
+    background-size: 115px 25px;
+
+    background-repeat: no-repeat;
+
+    background-position: center top;
+}
+
+
+/* =========================
+   CUPÓN REVELADO
+   ========================= */
+
+
+/* Encabezado del vale descubierto */
+
+.vale-revelado-icono::before {
+    content: "CUPÓN ESPECIAL";
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    color: #9a7a43;
+}
+
+
+/* Código de barras del vale descubierto */
+
+.vale-firma::after {
+    content: "VÁLIDO SOLO PARA ANTHO";
+
+    display: block;
+
+    width: 100%;
+
+    margin-top: 20px;
+    padding-top: 36px;
+
+    font-family: "Courier New", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    color: #9a7a43;
+
+    text-align: center;
+
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            #5f472a 0px 2px,
+            transparent 2px 4px,
+            #5f472a 4px 5px,
+            transparent 5px 9px,
+            #5f472a 9px 13px,
+            transparent 13px 16px
+        );
+
+    background-size: 145px 28px;
+
+    background-repeat: no-repeat;
+
+    background-position: center top;
+}
+/* =========================
+   FINAL: ACRÓSTICO ANTHO
+   ========================= */
+
+
+/* Fondo de la dedicatoria */
+
+.mensaje-final {
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff8e8,
+            #efdfb9
+        );
+
+    border: 1px solid #d8bd87;
+
+    padding: 38px 25px;
+
+    color: #654a30;
+
+}
+
+
+/* Introducción */
+
+.final-introduccion h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+    font-style: italic;
+
+    font-weight: normal;
+
+    color: #775334;
+
+    margin-bottom: 25px;
+
+}
+
+
+.final-introduccion p {
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* Presentación del nombre */
+
+.acrostico-presentacion {
+
+    margin: 35px 0;
+
+    padding: 18px 0;
+
+    border-top: 1px solid #d2b780;
+    border-bottom: 1px solid #d2b780;
+
+    font-size: 17px;
+
+    font-style: italic;
+
+    line-height: 1.8;
+
+    color: #8c693e;
+
+}
+
+
+/* Las cinco dedicatorias */
+
+.acrostico-linea {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+
+    padding: 18px 14px;
+
+    background: rgba(255, 253, 245, 0.65);
+
+    border-left: 2px solid #c6a260;
+
+    text-align: left;
+
+}
+
+
+/* Letras A N T H O */
+
+.acrostico-letra {
+
+    flex-shrink: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 49px;
+
+    font-style: italic;
+
+    line-height: 1;
+
+    color: #ba8f45;
+
+    text-shadow:
+        1px 2px 0 rgba(255, 255, 255, 0.8);
+
+}
+
+
+/* Texto junto a cada letra */
+
+.acrostico-linea p {
+
+    flex: 1;
+
+    margin: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+    color: #684d34;
+
+}
+
+
+/* Despedida */
+
+.final-despedida {
+
+    margin-top: 35px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #d2b780;
+
+}
+
+
+.final-despedida p {
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    font-style: italic;
+
+    margin-bottom: 25px;
+
+}
+
+
+.final-despedida h3 {
+
+    font-family: Georgia, serif;
+
+    font-size: 24px;
+
+    font-style: italic;
+
+    font-weight: normal;
+
+    color: #a67b39;
+
+    line-height: 1.4;
+
+    margin-bottom: 20px;
+
+}
+
+
+.final-florecitas {
+
+    font-size: 30px;
+
+    margin-bottom: 22px;
+
+    animation: flotar 3s ease-in-out infinite;
+
+}
+
+
+.firma-final {
+
+    display: block;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    text-align: right;
+
+    color: #927044;
+
+}
+
+
+/* =========================
+   ANIMACIÓN DEL MENSAJE
+   ========================= */
+
+/* Las partes aparecen suavemente */
+
+.pantalla-final.activa .final-introduccion {
+
+    animation:
+        revelar-antho 0.7s ease both;
+
+}
+
+
+.pantalla-final.activa .acrostico-presentacion {
+
+    animation:
+        revelar-antho 0.7s ease 0.7s both;
+
+}
+
+
+/* Cada letra tiene su propio retraso */
+
+.pantalla-final.activa .acrostico-linea {
+
+    animation:
+        revelar-antho 0.7s ease both;
+
+}
+
+
+.pantalla-final.activa .acrostico-linea:nth-of-type(1) {
+    animation-delay: 1.2s;
+}
+
+.pantalla-final.activa .acrostico-linea:nth-of-type(2) {
+    animation-delay: 1.65s;
+}
+
+.pantalla-final.activa .acrostico-linea:nth-of-type(3) {
+    animation-delay: 2.1s;
+}
+
+.pantalla-final.activa .acrostico-linea:nth-of-type(4) {
+    animation-delay: 2.55s;
+}
+
+.pantalla-final.activa .acrostico-linea:nth-of-type(5) {
+    animation-delay: 3s;
+}
+
+
+/* Despedida al final */
+
+.pantalla-final.activa .final-despedida {
+
+    animation:
+        revelar-antho 1s ease 3.6s both;
+
+}
+
+
+/* Movimiento de aparición */
+
+@keyframes revelar-antho {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(16px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================
+   AJUSTES PARA CELULAR
+   ========================= */
+
+@media (max-width: 480px) {
+
+    .mensaje-final {
+
+        padding: 30px 17px;
+
+    }
+
+    .acrostico-linea {
+
+        gap: 10px;
+
+        padding: 16px 11px;
+
+    }
+
+    .acrostico-letra {
+
+        font-size: 40px;
+
+    }
+
+    .acrostico-linea p {
+
+        font-size: 15px;
+
+        line-height: 1.7;
+
+    }
+
+    .final-despedida h3 {
+
+        font-size: 22px;
+
+    }
+
+}
+
+
+/* Respetar preferencias de movimiento reducido */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pantalla-final.activa .final-introduccion,
+    .pantalla-final.activa .acrostico-presentacion,
+    .pantalla-final.activa .acrostico-linea,
+    .pantalla-final.activa .final-despedida {
+
+        animation: none;
+
+    }
+
+}

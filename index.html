@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="icon" type="image/png" href="assets/decoracion/flor-pixel.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti 🌻</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Lluvia de flores, hojas y Miku -->
+    <div id="lluvia-flores"></div>
+
+
+    <!-- PRIMERA PANTALLA -->
+
+    <main class="pantalla-inicio">
+
+        <div class="flores">🌻 ✨ 🌻</div>
+
+        <h1>Mi Antho</h1>
+
+        <p>Tengo algo preparado para ti...</p>
+
+        <button id="botonAbrir">
+            🌻 Abrir mi regalo
+        </button>
+
+    </main>
+
+
+    <!-- SEGUNDA PANTALLA -->
+
+    <section class="pantalla-intro" id="pantallaIntro">
+
+        <div class="intro-contenido">
+
+            <div class="flor-intro">🌻</div>
+
+            <h2>Aunque estés lejos...</h2>
+
+            <p>
+                Quería encontrar una forma de hacerte llegar
+                unas flores, aunque esta vez no pudiera
+                entregártelas en persona.
+            </p>
+
+            <p>
+                Así que hice algo un poquito diferente para ti.
+            </p>
+
+            <button id="botonContinuar">
+                ✨ Quiero verlo
+            </button>
+
+        </div>
+
+    </section>
+
+<!-- TERCERA PANTALLA -->
+
+<<!-- TERCERA PANTALLA: EL RAMO -->
+
+<section class="pantalla-ramo" id="pantallaRamo">
+
+    <div class="ramo-contenido">
+
+        <h2>Unas flores para ti</h2>
+
+        <p>
+            Porque aunque estés lejos,
+            quería que hoy tuvieras tus flores. 🌻
+        </p>
+
+        <button id="botonRamo">
+    🌻 Ver mi ramo
+</button>
+
+<button id="botonSiguiente" class="boton-siguiente">
+    💛 Hay más para ti
+</button>
+
+</div>
+
+
+    <!-- Aquí aparecerá el ramo -->
+
+    <div class="ramo-magico" id="ramoMagico">
+
+<div class="tallo tallo-1"></div>
+<div class="tallo tallo-2"></div>
+<div class="tallo tallo-3"></div>
+<div class="tallo tallo-4"></div>
+<div class="tallo tallo-5"></div>
+<div class="tallo tallo-6"></div>
+<div class="tallo tallo-7"></div>
+<div class="tallo tallo-8"></div>
+<div class="tallo tallo-9"></div>
+
+        <img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-1">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-2">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-3">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-4">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-5">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-6">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-7">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-8">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-9">
+     <!-- Flores adicionales del ramo -->
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-10">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-11">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-12">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-13">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-14">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-15">
+
+<img src="assets/decoracion/flor-pixel.png"
+     class="flor-ramo flor-16">
+<!-- Papel que envuelve el ramo -->
+<div class="papel-ramo"></div>
+
+<!-- Lacito amarillo -->
+<div class="lazo-ramo"></div>
+    </div>
+
+</section>
+<!-- CUARTA PANTALLA: CAJITA DE SORPRESAS -->
+
+<section class="pantalla-sorpresas" id="pantallaSorpresas">
+
+    <div class="sorpresas-contenido">
+
+        <div class="sorpresas-icono">💛 ✨ 💛</div>
+
+        <h2>Esto no termina aquí...</h2>
+
+        <p>
+            Preparé algunas cositas más para ti, Antho.
+            Elige cuál quieres descubrir primero.
+        </p>
+
+        <div class="menu-regalos">
+
+            <button class="tarjeta-regalo" id="abrirCarta">
+                <span class="regalo-icono">💌</span>
+                <span class="regalo-titulo">Una carta para ti</span>
+                <span class="regalo-descripcion">Unas palabras que quería regalarte</span>
+            </button>
+
+            <button class="tarjeta-regalo" id="abrirMundos">
+                <span class="regalo-icono">📚</span>
+                <span class="regalo-titulo">Pedacitos de tus mundos</span>
+                <span class="regalo-descripcion">Un poquito de las cosas que amas</span>
+            </button>
+
+            <button class="tarjeta-regalo" id="abrirMusica">
+                <span class="regalo-icono">🎵</span>
+                <span class="regalo-titulo">Una canción para ti</span>
+                <span class="regalo-descripcion">Para escucharnos incluso de lejos</span>
+            </button>
+
+            <button class="tarjeta-regalo" id="abrirVales">
+                <span class="regalo-icono">🎟️</span>
+                <span class="regalo-titulo">Vales para nosotros</span>
+                <span class="regalo-descripcion">Pequeñas promesas para compartir</span>
+            </button>
+<!-- ÚLTIMA SORPRESA BLOQUEADA -->
+
+<button class="tarjeta-regalo tarjeta-final" id="abrirFinal" disabled>
+
+    <span class="regalo-icono" id="iconoFinal">🔒</span>
+
+    <span class="regalo-titulo">
+        Una última cosa...
+    </span>
+
+    <span class="regalo-descripcion" id="estadoFinal">
+        Descubre primero las otras cuatro sorpresas
+    </span>
+
+</button>
+        </div>
+
+    </div>
+
+</section>
+<!-- QUINTA PANTALLA: CARTA PARA ANTHO -->
+
+<section class="pantalla-carta" id="pantallaCarta">
+
+    <div class="carta-escena">
+
+        <h2>Una carta para mi Antho 💌</h2>
+
+        <p class="instruccion-carta">
+            Hay unas palabras guardadas para ti.
+            Toca el sello para descubrirlas.
+        </p>
+
+
+        <!-- SOBRE CERRADO -->
+
+        <div class="sobre" id="sobreCarta">
+
+            <div class="sobre-base"></div>
+
+            <div class="sobre-solapa"></div>
+
+            <button
+                class="sello-cera"
+                id="selloCarta"
+                aria-label="Romper el sello de cera y abrir la carta">
+
+                ♥️
+
+            </button>
+
+        </div>
+
+
+        <!-- CARTA QUE APARECERÁ AL ABRIR EL SOBRE -->
+
+        <!-- CARTA PARA ANTHO -->
+
+<article class="papel-carta" id="papelCarta">
+
+    <div class="carta-encabezado">
+        UNA CARTA ENTRE DOS ORILLAS
+    </div>
+
+    <h3>Mi Antho:</h3>
+
+    <p>
+        Hoy me habría encantado poder estar frente a ti
+        y entregarte estas flores con mis propias manos.
+        Me habría gustado ver tu reacción, abrazarte
+        y quedarme contigo un ratito.
+    </p>
+
+    <p>
+        Pero, como todavía nos separan tantos kilómetros,
+        se me ocurrió buscar otra forma de hacerte
+        llegar algo bonito.
+    </p>
+
+    <p>
+        Y así nació este pequeño regalo. Entre mis parciales,
+        mis pendientes y mis ratitos libres, fui construyendo
+        un lugar donde pudiera guardar algunas de las cosas
+        que te gustan y algunas de las palabras que quería decirte.
+    </p>
+
+    <p>
+        Hay una idea de El arte de amar que me gusta mucho:
+        el amor no consiste solamente en sentir algo por alguien,
+        sino también en aprender a cuidar, comprender
+        y respetar a esa persona.
+    </p>
+
+    <p>
+        Me hace pensar en que querer a alguien también está
+        en los pequeños gestos, en escucharla, en conocer
+        cada vez más de su mundo y en elegir dedicarle tiempo.
+    </p>
+
+    <p>
+        Y eso es algo que quiero seguir aprendiendo contigo, Antho.
+    </p>
+
+    <p>
+        Me gusta descubrir las cosas que te emocionan,
+        las historias que te gustan y esos pequeños
+        detalles que hacen que seas tú.
+    </p>
+
+    <p>
+        Me gusta imaginar todas las conversaciones
+        que todavía tendremos, las canciones que compartiremos
+        y los lugares a los que algún día podremos ir juntos.
+    </p>
+
+    <p>
+        Ojalá hubiera podido llevarte un ramo de flores amarillas
+        de verdad. Por ahora, te dejo estas dieciséis florecitas
+        y este pequeño rincón que construí pensando en ti.
+    </p>
+
+    <p class="carta-despedida">
+        Feliz día de las flores amarillas, mi Antho.
+    </p>
+
+    <p class="firma-carta">
+        Con mucho cariño,<br>
+        Tu Mathi ♡
+    </p>
+
+</article>
+
+
+        <!-- REGRESAR A LAS SORPRESAS -->
+
+        <button class="volver-carta" id="volverCarta">
+            ← Volver a mis sorpresas
+        </button>
+
+    </div>
+
+</section>
+<!-- SEXTA PANTALLA: PEDACITOS DE TUS MUNDOS -->
+
+<section class="pantalla-mundos" id="pantallaMundos">
+
+    <div class="mundos-contenido">
+
+        <div class="mundos-icono">📚 ✨ 🌻</div>
+
+        <h2>Pedacitos de tus mundos</h2>
+
+        <p class="mundos-intro">
+            Hay cosas que me hacen pensar en ti.
+            Guardé algunas de ellas aquí, como pequeñas
+            postales de los mundos que tanto te gustan.
+        </p>
+
+        <div class="coleccion-mundos">
+
+            <!-- POSTAL DE LIBROS: PÁGINA ARRANCADA -->
+
+<article class="postal-mundo postal-libros">
+
+    <div class="libros-contenido">
+
+        <span class="libros-capitulo">
+            CAPÍTULO I · NOSOTROS
+        </span>
+
+        <h3>Entre libros y páginas</h3>
+
+        <div class="libros-separador"></div>
+
+        <p class="libros-frase">
+
+            Me gusta esa idea de que amar no es solamente
+            sentir algo bonito, sino también aprender
+            a cuidar lo que estamos construyendo.
+
+            Contigo, quiero seguir aprendiendo.
+
+        </p>
+
+        <div class="libros-firma">
+
+            Un pequeño apunte de Mathi
+            para su Antho ♡
+
+        </div>
+
+    </div>
+
+</article>
+
+            <!-- POSTAL DE MIKU: SCRAPBOOK -->
+
+<article class="postal-mundo postal-miku">
+
+    <!-- Recortes de papel -->
+
+    <div class="miku-escena">
+
+        <img
+            src="assets/mundos/miku-estrellas.png"
+            class="miku-estrellas"
+            alt="Estrellas recortadas en papel">
+
+        <img
+            src="assets/mundos/miku-notas.png"
+            class="miku-notas"
+            alt="Notas musicales recortadas en papel">
+
+        <img
+            src="assets/mundos/miku-chibi.png"
+            class="miku-personaje"
+            alt="Miku chibi">
+
+    </div>
+
+
+    <!-- Dedicatoria -->
+
+    <div class="miku-nota">
+
+        <span class="miku-etiqueta">
+            UN RINCÓN HECHO PARA TI
+        </span>
+
+        <h3>Tu rincón de Miku</h3>
+
+        <p>
+            Tenía que dejarle un lugar a Miku aquí.
+            Elegí estas notas y estrellas de papel
+            pensando en ti, para que entre tantos
+            regalitos encuentres un pedacito
+            de algo que te encanta.
+        </p>
+
+        <span class="miku-firma">
+            Para Antho, de Mathi ♡
+        </span>
+
+    </div>
+
+</article>
+
+            <!-- POSTAL DE ZELDA -->
+
+<article class="postal-mundo postal-zelda">
+
+    <div class="zelda-capa"></div>
+
+    <div class="zelda-contenido">
+
+        <span class="zelda-etiqueta">
+            HYRULE
+        </span>
+
+        <h3>Una aventura contigo</h3>
+
+        <p class="zelda-frase">
+            Si tuviera que recorrer cada rincón
+            de Hyrule para encontrarte, lo haría.
+            Pero preferiría descubrir contigo
+            todos los caminos que todavía nos esperan.
+        </p>
+
+        <div class="zelda-firma">
+            Para mi Antho ✨
+        </div>
+
+    </div>
+
+</article>
+
+            <!-- POSTAL DE NARUTO: ICHIRAKU RAMEN -->
+
+<article class="postal-mundo postal-naruto">
+
+    <span class="naruto-etiqueta">
+        ICHIRAKU RAMEN
+    </span>
+
+    <div class="naruto-contenido">
+
+        <div class="naruto-nota">
+
+            <span class="naruto-detalle">
+                Una mesa para dos
+            </span>
+
+            <h3>Una cita en Ichiraku</h3>
+
+            <p>
+                No sé si siempre encontraré
+                las palabras perfectas,
+                pero sí quiero seguir compartiendo
+                contigo esas pequeñas cosas
+                que vuelven bonito un momento.
+            </p>
+
+            <p>
+                Y si algún día terminamos
+                comiendo ramen juntos,
+                ojalá sea el primero de muchísimos.
+            </p>
+
+            <span class="naruto-firma">
+                Para mi Antho ♡
+            </span>
+
+        </div>
+
+    </div>
+
+</article>
+<!-- POSTAL DE ANIMAL CROSSING -->
+
+<article class="postal-mundo postal-animal">
+
+    <div class="animal-carta">
+
+        <div class="animal-encabezado">
+
+            <span>CORREO DE LA ISLA</span>
+
+            <div class="animal-sello">
+                AC
+            </div>
+
+        </div>
+
+        <h3>Para mi vecina favorita</h3>
+
+        <p>
+            Si algún día tuviéramos nuestra propia
+            islita, me gustaría construir una
+            casita cerca de la tuya.
+        </p>
+
+        <p>
+            Así podría dejarte cartitas en
+            el buzón, visitarte cuando quisiera
+            y llenar tu jardín de flores amarillas.
+        </p>
+
+        <div class="animal-firma">
+            De: Mathi<br>
+            Para: Antho ♡
+        </div>
+
+    </div>
+
+</article>
+            <!-- POSTAL DE TERROR: PODCAST PARANORMAL -->
+
+<article class="postal-mundo postal-terror">
+
+    <div class="terror-encabezado">
+
+        <span class="terror-archivo">
+            ARCHIVO 006
+        </span>
+
+        <span class="terror-hora">
+            02:13 A. M.
+        </span>
+
+    </div>
+
+    <h3>Hay algo que quiero contarte...</h3>
+
+    <div class="terror-grabadora">
+
+        <span class="terror-etiqueta">
+            GRABACIÓN RESERVADA PARA ANTHO
+        </span>
+
+        <div class="terror-ondas">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+        <span class="terror-estado">
+            TRANSCRIPCIÓN PENDIENTE...
+        </span>
+
+    </div>
+
+    <button class="terror-boton" id="botonTerror">
+        Revelar mensaje
+    </button>
+
+    <div class="terror-mensaje" id="mensajeTerror">
+
+        <p>
+            Si alguna noche escuchamos un podcast
+            de terror juntos y algo hace ruido
+            al otro lado de la habitación...
+        </p>
+
+        <p>
+            Prometo quedarme contigo.
+            Aunque probablemente sea yo
+            quien termine más asustado.
+        </p>
+
+        <span>
+            Expediente cerrado.<br>
+            Con cariño, Mathi ♡
+        </span>
+
+    </div>
+
+</article>
+
+        </div>
+
+        <button id="volverMundos" class="volver-mundos">
+            ← Volver a mis sorpresas
+        </button>
+
+    </div>
+
+</section>
+<!-- SÉPTIMA PANTALLA: MÚSICA -->
+
+<section class="pantalla-musica" id="pantallaMusica">
+
+    <div class="musica-contenido">
+
+        <div class="musica-icono">🎵</div>
+
+        <h2>Una canción para ti</h2>
+
+        <p>
+            Hay canciones que me hacen pensar en ti.
+            Quería guardar algunas aquí para que
+            puedas escucharlas cuando quieras.
+        </p>
+
+        <div class="musica-aviso">
+    Puedes escuchar la playlist aquí mismo,
+    pero hay un secreto escondido en el orden de las canciones...
+    si quieres descubrirlo bien, entra también a Apple Music
+    y mira con qué letra empieza cada una. ♡
+</div>
+
+<div class="disco-musica">
+
+    <div class="centro-disco">
+        <img
+            src="assets/musica/playlist-cover.jpg"
+            alt="Portada de la playlist para Antho">
+    </div>
+
+</div>
+
+        <p class="dedicatoria-musica">
+            Para esos ratitos en los que me gustaría
+            estar escuchando música contigo.
+        </p>
+<iframe
+    class="player-apple"
+    allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+    frameborder="0"
+    height="450"
+    style="width:100%; max-width:660px; overflow:hidden; border-radius:18px; background:transparent;"
+    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+    src="https://embed.music.apple.com/pe/playlist/i-have-something-to-tell-u/pl.u-MDAWklGs331L85P">
+</iframe>
+        <button id="escucharMusica">
+            ♫ Escuchar en Apple Music
+        </button>
+
+        <p id="mensajeMusica" class="mensaje-musica"></p>
+
+        <button id="volverMusica" class="volver-musica">
+            ← Volver a mis sorpresas
+        </button>
+
+    </div>
+
+</section>
+<!-- OCTAVA PANTALLA: VALES PARA NOSOTROS -->
+
+<section class="pantalla-vales" id="pantallaVales">
+
+    <div class="vales-contenido">
+
+        <div class="vales-icono">🎟️ 💛 🎟️</div>
+
+        <h2>Vales para nosotros</h2>
+
+        <p class="vales-intro">
+            No todos los regalos caben en una caja.
+            Algunos son pequeños momentos que
+            quiero compartir contigo.
+        </p>
+
+        <p class="vales-indicacion">
+            Toca un vale para descubrirlo.
+        </p>
+
+
+        <!-- COLECCIÓN DE VALES -->
+
+        <div class="coleccion-vales">
+
+            <button
+                class="tarjeta-vale"
+                data-titulo="Una noche de llamada 🌙"
+                data-mensaje="Vale por una noche para conversar de todo, de nada y de cualquier cosa, hasta que nos dé sueño.">
+
+                <span class="vale-numero">VALE 01</span>
+
+                <span class="vale-emoji">🌙</span>
+
+                <span class="vale-nombre">
+                    Una noche de llamada
+                </span>
+
+            </button>
+
+
+            <button
+                class="tarjeta-vale"
+                data-titulo="Tú eliges nuestro plan 💛"
+                data-mensaje="Vale por una cita virtual donde tú decides qué hacemos. Yo pongo las ganas de compartir ese ratito contigo.">
+
+                <span class="vale-numero">VALE 02</span>
+
+                <span class="vale-emoji">💛</span>
+
+                <span class="vale-nombre">
+                    Tú eliges nuestro plan
+                </span>
+
+            </button>
+
+
+            <button
+                class="tarjeta-vale"
+                data-titulo="Una aventura juntos 🎮"
+                data-mensaje="Vale por una tarde o noche de juegos juntos. Podemos explorar, competir, perdernos o simplemente pasarla bonito.">
+
+                <span class="vale-numero">VALE 03</span>
+
+                <span class="vale-emoji">🎮</span>
+
+                <span class="vale-nombre">
+                    Una aventura juntos
+                </span>
+
+            </button>
+
+
+            <button
+                class="tarjeta-vale"
+                data-titulo="Una carta inesperada 💌"
+                data-mensaje="Vale por una nueva carta escrita especialmente para ti, en un día cualquiera, solo porque me nació recordarte cuánto te quiero.">
+
+                <span class="vale-numero">VALE 04</span>
+
+                <span class="vale-emoji">💌</span>
+
+                <span class="vale-nombre">
+                    Una carta inesperada
+                </span>
+
+            </button>
+
+
+            <button
+                class="tarjeta-vale"
+                data-titulo="Flores en tus manos 🌻"
+                data-mensaje="Vale por un ramo de flores amarillas cuando podamos encontrarnos. Esta vez no tendrás que recibirlo a través de una pantalla.">
+
+                <span class="vale-numero">VALE 05</span>
+
+                <span class="vale-emoji">🌻</span>
+
+                <span class="vale-nombre">
+                    Flores en tus manos
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- AQUÍ APARECERÁ EL VALE ELEGIDO -->
+
+        <div class="vale-revelado" id="valeRevelado">
+
+            <div class="vale-revelado-icono">🎟️</div>
+
+            <h3 id="tituloVale"></h3>
+
+            <p id="textoVale"></p>
+
+            <span class="vale-firma">
+                Para mi Antho, de Mathi 💛
+            </span>
+
+        </div>
+
+
+        <button id="volverVales" class="volver-vales">
+            ← Volver a mis sorpresas
+        </button>
+
+    </div>
+
+</section>
+<!-- NOVENA PANTALLA: SORPRESA FINAL -->
+
+<section class="pantalla-final" id="pantallaFinal">
+
+    <div class="final-contenido">
+
+        <div class="final-icono">💛</div>
+
+        <h2>Una última cosa...</h2>
+
+        <p>
+            Antes de que termine este pequeño regalo,
+            hay algo más que quiero decirte.
+        </p>
+
+        <!-- MENSAJE FINAL PARA ANTHO -->
+
+<div class="mensaje-final">
+
+    <div class="final-introduccion">
+
+        <h3>Mi Antho:</h3>
+
+        <p>
+            No quería terminar este pequeño regalo
+            sin recordarte algo:
+        </p>
+
+        <p>
+            Todavía nos quedan muchísimas cosas
+            bonitas por vivir juntos.
+        </p>
+
+    </div>
+
+
+    <!-- LAS CINCO LETRAS DE SU NOMBRE -->
+
+    <div class="acrostico-antho">
+
+        <p class="acrostico-presentacion">
+            Y si pienso en todo lo que nos espera,
+            hay cinco letras que me recuerdan a ti...
+        </p>
+
+
+        <div class="acrostico-linea">
+
+            <span class="acrostico-letra">A</span>
+
+            <p>
+                unque hoy haya kilómetros entre nosotros,
+                quiero seguir encontrando maneras
+                de acercarme a ti.
+            </p>
+
+        </div>
+
+
+        <div class="acrostico-linea">
+
+            <span class="acrostico-letra">N</span>
+
+            <p>
+                os quedan películas por ver,
+                historias por contar y muchas
+                noches de conversación.
+            </p>
+
+        </div>
+
+
+        <div class="acrostico-linea">
+
+            <span class="acrostico-letra">T</span>
+
+            <p>
+                ambién nos esperan juegos, canciones,
+                risas y esa primera cita
+                para comer ramen juntos.
+            </p>
+
+        </div>
+
+
+        <div class="acrostico-linea">
+
+            <span class="acrostico-letra">H</span>
+
+            <p>
+                ay una historia bonita que seguimos
+                escribiendo, sin prisa
+                y a nuestra manera.
+            </p>
+
+        </div>
+
+
+        <div class="acrostico-linea">
+
+            <span class="acrostico-letra">O</span>
+
+            <p>
+                jalá llegue el día en que pueda
+                abrazarte y entregarte en persona
+                las flores que hoy tuvieron que
+                viajar a través de esta pantalla.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- DESPEDIDA -->
+
+    <div class="final-despedida">
+
+        <p>
+            Este regalo termina aquí,
+            pero todavía nos quedan
+            muchos capítulos por escribir.
+        </p>
+
+        <h3>
+            Te quiero mucho, mi Antho. ♡
+        </h3>
+
+        <div class="final-florecitas">
+            🌻 ✨ 🌻
+        </div>
+
+        <span class="firma-final">
+            — Tu Mathi
+        </span>
+
+    </div>
+
+</div>
+
+</section>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
